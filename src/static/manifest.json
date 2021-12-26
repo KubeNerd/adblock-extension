@@ -1,0 +1,32 @@
+{
+  "name": "AdBlock Extension",
+  "description": "AdBlock extension in TypeScript!",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "AdBlock Extension",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "*://*.tpcgoooglesyndication.com/*",
+    "*://*.googleadservices.com/*"
+  ],
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
